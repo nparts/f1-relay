@@ -1,0 +1,27 @@
+{
+  "name": "f1-relay",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "dev": "ts-node-dev --respawn --transpile-only src/websocket.ts",
+    "build": "tsc",
+    "test": "jest",
+    "test-udp": "ts-node src/test-udp-client.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/express": "^5.0.0",
+    "@types/node": "^22.13.0",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "f1-23-udp": "^1.1.0",
+    "socket.io": "^4.8.1"
+  }
+}
