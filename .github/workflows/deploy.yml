@@ -1,0 +1,26 @@
+name: Deploy Node.js App on Raspberry Pi
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: |
+          docker build -t f1-relay .
+
+      - name: Stop & Remove Old Container
+        run: |
+          docker stop f1-relay || true
+          docker rm f1-relay || true
+
+      - name: Run New Container
+        run: |
+          docker run -d --name f1-relay -p 3000:3000 f1-relay
