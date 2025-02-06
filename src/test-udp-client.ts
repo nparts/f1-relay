@@ -192,7 +192,7 @@ const intervalId = setInterval(() => {
   const testPacket = createRandomTestPacket();
   const encodedData = encodeTelemetryPacket(testPacket);
   
-  client.send(encodedData, 20777, 'localhost', (err) => {
+  client.send(encodedData, 20777, 'f1display.local', (err) => {
     if (err) {
       console.error('Error sending packet:', err);
     }
